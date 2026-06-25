@@ -14,7 +14,7 @@ def tableOfContents() -> int:
         chapterName = chapter_names[chapter]
         print(f"{chapter}: {chapterName}")
     chapterNumber = int(input())
-    print(f"you have selected {chapter_names[chapterNumber]}")
+    print(f"You have selected {chapter_names[chapterNumber]}")
     return chapterNumber
 
 def quit():
@@ -28,8 +28,11 @@ def main():
     welcome()
     
     takeAQuiz = False
+    chapterNumber = tableOfContents()
+    if chapterNumber == 7:
+        takeAQuiz = True
+    
     while not takeAQuiz:
-        chapterNumber = tableOfContents()
         #open selected chapter
         chapter = Chapter(chapterNumber)
         subchapter = chapter.subContents()
@@ -46,7 +49,10 @@ def main():
         else:
             quit()
 
-    #take a quiz
+    while takeAQuiz:
+        print("This part is under construction and no quizzes are available at this time")
+        print("The program will now exit")
+        sys.exit()
 
 
 main()
