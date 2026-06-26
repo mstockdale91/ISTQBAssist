@@ -39,8 +39,8 @@ def main():
         lastviewed = chapter.viewChapter(subchapter)
         
         if chapter.chapterComplete(lastviewed):
-            print(f"You last viewed {chapter_names[chapterNumber]}: Section {lastviewed}")
-            print("You have completed the chapter, would you like to take a quiz? Y/N")
+            print(f"You last viewed {chapter_names[chapterNumber]}: {chapter_contents[chapterNumber][lastviewed]}")
+            print(f"You have completed the chapter {chapter_names[chapterNumber]}, would you like to take a quiz? Y/N")
             quiz = input()
             if quiz.lower == "y":
                 takeAQuiz = True

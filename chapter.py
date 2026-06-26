@@ -17,11 +17,10 @@ class Chapter():
     
     def viewChapter(self, subchapter: int) -> int:
         
-        self.printChapter(subchapter)       
+        self.printChapter(subchapter)             
         while self.continueStudying(subchapter):
             subchapter += 1
             self.printChapter(subchapter)
-            input("Press any key to continue")
         
         print("Returning to home screen")
         return subchapter
@@ -57,18 +56,25 @@ class Chapter():
         
         with open("ISTQBcontent.txt", 'r')  as file:
             printing = False
+            counter = 0
             for _, current_line in enumerate(file):
                 if start_string in current_line:
                     printing = True
                     continue
                 if end_string1 in current_line:
                     printing = False
+                    input("End of section: Press any key to continue")
                     break
                 if end_string2 in current_line:
                     printing = False
+                    input("End of Chapter: Press any key to continue")
                     break
                 if printing:
                     print(current_line)
+                    counter += 1
+                    if counter == 3:
+                        input("Readability break: Press any key to continue")
+                
 
 
 
